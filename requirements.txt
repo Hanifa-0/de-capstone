@@ -1,0 +1,6 @@
+pandas
+os
+pyyaml
+pyarrow
+pytest
+install these libraries using "pip install -r requirements.txt"
