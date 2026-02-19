@@ -1,4 +1,0 @@
-files:
-  input_file : data/dirty_cafe_sales.csv
-  output_file : data/cleaned_data.parquet
-  output_file_csv : data/cleaned_data.csv
