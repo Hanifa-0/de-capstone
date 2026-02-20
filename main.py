@@ -6,12 +6,10 @@ from utils.data_cleaning import data_clean
 from utils.read_csv import reading_file
 from utils.insights import insights
 
-def setup_logging(): 
-    logging.basicConfig(
-    level=logging.INFO,
-    handlers=[logging.FileHandler("app.log")]
-)
-    
+
+def setup_logging():
+    logging.basicConfig(level=logging.INFO, handlers=[logging.FileHandler("app.log")])
+
 
 def main():
     setup_logging()
@@ -26,6 +24,7 @@ def main():
     output_file_dated = f"data/{current_date}.csv"
     df.to_csv(output_file_dated)
     logger.info("finished")
+
 
 if __name__ == "__main__":
     main()
