@@ -1,9 +1,11 @@
 import pandas as pd
 import yaml
+import logging
 
 with open("config.yaml", "r") as file:
     configs = yaml.safe_load(file)
 def data_clean(df):
+    logging.info("data cleaning starts")
     #print(df.count())
     #print(df.isnull().sum())
 
@@ -62,6 +64,14 @@ def data_clean(df):
     # invalid_total = df[
     # df['Total Spent'] != df['Quantity'] * df['Price Per Unit']]
     # print(invalid_total)
+
+
+    #derived feature
+    df["Current Date"] = pd.to_datetime("today")
+    df["Days passed after ordering"] = df["Current Date"] - df["Transaction Date"]
+    print(df["Days passed after ordering"])
+
+    logging.info("data cleaning done")
 
     return df
 

@@ -3,4 +3,5 @@ os
 pyyaml
 pyarrow
 pytest
+black
 install these libraries using "pip install -r requirements.txt"
