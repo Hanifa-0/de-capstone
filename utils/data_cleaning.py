@@ -55,7 +55,7 @@ def data_clean(df):
     df["Transaction Date"] = df["Transaction Date"].fillna(pd.Timestamp("2001-10-20"))
     print(df.info())
     print("saving files to: ", configs["files"]["output_file"])
-    df.to_csv(configs["files"]["output_file_csv"])
+    df.to_csv(configs["files"]["output_file_csv"], index= False)
     df.to_parquet(configs["files"]["output_file"], index=False)
     # print(df.columns)
     # invalid_total = df[
