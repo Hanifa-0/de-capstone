@@ -17,7 +17,7 @@ Step 6: etl job running
 ![etl job running](images/decapstone_etl_job_running.png)
 
 Step 7: job bookmark enabled in ETL
-![job bookmark enabled in ETL](images/decapstone_etl_job_bookmark_enabled.png)
+![job bookmark enabled in ETL](images/decapstone_etl_job_job_bookmark_enabled.png)
 
 Step 8: the result of the pyspark job is that the cleaned_data.csv file in raw folder of S3 is partitioned and saved in curated folder of S3 after partitioning on the basis of year and month of transaction date.
 ![the result of the pyspark job is that the cleaned_data.csv file in raw folder of S3 is partitioned and saved in curated folder of S3 after partitioning on the basis of year and month of transaction date.](images/partitioned_folders_created.png)
@@ -26,7 +26,7 @@ Step 9: Partitioned data in curated folder
 ![Partitioned data in curated folder](images/partitioned_folders_created_in_s3.png)
 
 Step 10: Partitioned data
-![Partitioned data](images/partitioned_folders_created_in_s3_.png)
+![Partitioned data](images/partitioned_folder_created_in_s3_.png)
 
 Step 11: Create a crawler for partitioned data in curated folder in s3
 ![Create a crawler for partitioned data in curated folder in s3](images/crawler_for_partitioned_data_stored_in_curated.png)
@@ -41,7 +41,7 @@ Step 14: In aws Data lake formation create an administrator using root account a
 ![In aws Data lake formation create an administrator using root account and register data location as raw and curated folders in s3](images/data_lake_locations.png)
 
 Step 15: create an iam role with restricted permission for raw folder and full permission for curated folder
-![create an iam role with restricted permission for raw folder and full permission for curated folder](images/glue_job_and_limited_user_permission.png)
+![create an iam role with restricted permission for raw folder and full permission for curated folder](images/glue_job_and_limited_user_permission_for_data_lake.png)
 
 Step 16: write the test glue job to check if iam user can access curated and not access raw
 ![write the test glue job to check if iam user can access curated and not access raw](images/test_job.png)
