@@ -63,3 +63,5 @@ Step 21: run time for query for partitioned data after using CTAS
 
 Step 22: run time for query for partitioned data before using CTAS
 ![run time for query for partitioned data before using CTAS](images/result_before_using_ctas_query.png)
+
+Runtime after using CTAS is coming more than before using CTAS because i have run multiple times the CTAS commands and it has therefore duplicated the data.
