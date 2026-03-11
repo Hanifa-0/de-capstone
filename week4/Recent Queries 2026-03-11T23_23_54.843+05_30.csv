@@ -1,0 +1,70 @@
+Execution ID,Query,Start time,Status,Run time,Data scanned,Query engine version used,Encryption
+3e483716-ccf3-40ac-b17a-52576d9a8c9a,"SELECT COUNT(*) FROM ""decapstone-db"".""curated_parquet1""",2026-03-11T21:35:30.797+05:30,SUCCEEDED,588 ms,0 MB,Athena engine version 3,
+3e7eb62b-7ba8-4b4c-aa90-9e1dd3df049c,"CREATE TABLE ""decapstone-db"".""curated_parquet1""
+WITH (
+    format = 'PARQUET',
+    external_location = 's3://decapstone-bucket/athena-query/',
+    partitioned_by = ARRAY['year', 'month']
+)
+AS
+SELECT DISTINCT *
+FROM ""decapstone-db"".""curated""",2026-03-11T21:33:49.643+05:30,SUCCEEDED,2.828 sec,82.94 KB,Athena engine version 3,
+c5df0237-21a3-457b-8e88-34425b57ccf4,"CREATE TABLE ""decapstone-db"".""curated_parquet""
+WITH (
+    format = 'PARQUET',
+    external_location = 's3://decapstone-bucket/athena-query/',
+    partitioned_by = ARRAY['year', 'month']
+)
+AS
+SELECT DISTINCT *
+FROM ""decapstone-db"".""curated""",2026-03-11T21:33:41.327+05:30,FAILED,194 ms,0 MB,Athena engine version 3,
+a80922f6-be2b-464a-95a3-33a6ad6ccba8,SELECT COUNT(*) FROM curated,2026-03-11T21:30:59.910+05:30,SUCCEEDED,837 ms,0 MB,Athena engine version 3,
+72145a02-019f-420a-a23e-8acf2cbcfa38,"SELECT * FROM ""decapstone-db"".""curated"" limit 10",2026-03-11T21:30:31.541+05:30,SUCCEEDED,932 ms,82.94 KB,Athena engine version 3,
+a4f4d381-9da4-44e2-afba-8f8b8ace2216,"SELECT * FROM ""decapstone-db"".""curated_parquet"" limit 10",2026-03-11T21:30:08.105+05:30,SUCCEEDED,1.283 sec,78.18 KB,Athena engine version 3,
+11aebf7f-b01a-4e6c-b1f0-6f1d27e37111,"SELECT * FROM ""decapstone-db"".""curated"" limit 10",2026-03-11T21:29:53.941+05:30,SUCCEEDED,1.23 sec,82.94 KB,Athena engine version 3,
+0e05112b-136f-4247-ada9-1a4e19889b5b,SELECT COUNT(*) FROM curated_parquet,2026-03-11T21:28:46.798+05:30,SUCCEEDED,740 ms,0 MB,Athena engine version 3,
+fc62114f-22e2-4e15-86ec-385a12a520ff,SELECT COUNT(*) FROM curated,2026-03-11T21:28:14.538+05:30,SUCCEEDED,739 ms,0 MB,Athena engine version 3,
+ca99177a-3010-46b4-964f-ad7ffba1fcbb,SELECT COUNT(*) FROM curated_table,2026-03-11T21:28:07.127+05:30,FAILED,156 ms,0 MB,Athena engine version 3,
+8a57bed6-75f1-44ba-aac7-cf4e7461d88c,"CREATE TABLE curated_parquet
+WITH (
+format='PARQUET',
+external_location='s3://decapstone-bucket/athena-query/',
+partitioned_by=ARRAY['year','month']
+)
+AS
+SELECT * FROM ""decapstone-db"".""curated""",2026-03-11T21:27:26.738+05:30,SUCCEEDED,1.959 sec,82.94 KB,Athena engine version 3,
+81263c5f-3932-4ce5-9da5-f84c3bf1d941,"CREATE TABLE curated_parquet
+WITH (
+    format = 'PARQUET',
+    external_location = 's3://decapstone-bucket/athena-query/',
+    partitioned_by = ARRAY['year','month']
+) AS
+SELECT *
+FROM ""decapstone-db"".""curated""",2026-03-11T21:18:40.915+05:30,FAILED,1.625 sec,82.94 KB,Athena engine version 3,
+2125641e-07e5-459b-9aad-bf8a40e346bd,"CREATE TABLE curated_table_parquet
+WITH (
+    format = 'PARQUET',
+    external_location = 's3://decapstone-bucket/curated_parquet/',
+    partitioned_by = ARRAY['year', 'month']
+) AS
+SELECT 
+    *,
+    year(transaction_date) AS year,
+    month(transaction_date) AS month
+FROM curated",2026-03-11T21:15:32.508+05:30,FAILED,135 ms,0 MB,Athena engine version 3,
+44f32e39-4720-4de4-9189-3acee63a8c8e,"CREATE TABLE curated_table_parquet
+WITH (
+    format = 'PARQUET',
+    external_location = 's3://decapstone-bucket/curated_parquet/',
+    partitioned_by = ARRAY['year', 'month']
+) AS
+SELECT 
+    *,
+    year(transaction_date) AS year,
+    month(transaction_date) AS month
+FROM curated_table",2026-03-11T21:15:02.507+05:30,FAILED,251 ms,0 MB,Athena engine version 3,
+2fe16e2c-da44-4451-8362-4bc73c61f1a5,"SELECT * FROM ""AwsDataCatalog"".""decapstone-db"".""curated"" limit 10",2026-03-11T21:12:52.265+05:30,SUCCEEDED,770 ms,31.88 KB,Athena engine version 3,
+ac398721-cf08-4aaf-ab53-51b00920e771,"SELECT * FROM ""AwsDataCatalog"".""decapstone-db"".""raw"" limit 10",2026-03-11T21:09:38.124+05:30,FAILED,182 ms,0 MB,Athena engine version 3,
+3e870762-65b3-4297-af02-3d1089652c29,"SELECT * FROM ""AwsDataCatalog"".""decapstone-db"".""curated"" limit 10",2026-03-11T21:09:10.908+05:30,SUCCEEDED,857 ms,69.28 KB,Athena engine version 3,
+f242b554-a2c6-455c-9a69-cd907e23e6ae,"SELECT * FROM ""AwsDataCatalog"".""decapstone-db"".""curated"" limit 10",2026-03-11T21:03:14.162+05:30,FAILED,679 ms,19.39 KB,Athena engine version 3,
+9cc4c770-b8f2-4d5e-ae87-77883fd75f52,"SELECT * FROM ""AwsDataCatalog"".""decapstone-db"".""raw"" limit 10",2026-03-11T21:02:39.391+05:30,FAILED,214 ms,0 MB,Athena engine version 3,
