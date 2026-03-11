@@ -41,7 +41,7 @@ Step 14: In aws Data lake formation create an administrator using root account a
 ![In aws Data lake formation create an administrator using root account and register data location as raw and curated folders in s3](images/data_lake_locations.png)
 
 Step 15: create an iam role with restricted permission for raw folder and full permission for curated folder
-![create an iam role with restricted permission for raw folder and full permission for curated folder](images/glue_job_and_limited_user_permission_for_data_lake.png)
+![create an iam role with restricted permission for raw folder and full permission for curated folder](images/glue-job_and_limited_user_permission_for_data_lake.png)
 
 Step 16: write the test glue job to check if iam user can access curated and not access raw
 ![write the test glue job to check if iam user can access curated and not access raw](images/test_job.png)
