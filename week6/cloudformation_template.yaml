@@ -1,0 +1,60 @@
+AWSTemplateFormatVersion : "2010-09-09"
+Description: creating S3, IAM role, Glue database and step function
+
+Resources:
+  MyBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "unique-bucket-create${AWS::AccountId}"
+      
+  GlueDatabase:
+    Type: AWS::Glue::Database  
+    Properties:
+      CatalogId: !Ref AWS::AccountId
+      DatabaseInput:
+        Name: my_db
+
+  StepFunctionIAMRole:
+    Type: AWS::IAM::Role 
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: states.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: "basic-role"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:*
+                Resource: "*"
+       
+
+  StateMachine:
+    Type: AWS::StepFunctions::StateMachine
+    Properties:
+      RoleArn: !GetAtt StepFunctionIAMRole.Arn
+      DefinitionString: |
+        {
+          "StartAt": "hello",
+          "States":{
+            "hello":{
+              "Type":"Pass",
+              "Result" : "Hello world",
+              "End": true
+            }
+          }
+        }
+
+      
+Outputs:
+  BucketName: 
+    Value: !Ref MyBucket
+
+        
+      
